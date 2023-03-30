@@ -26,9 +26,9 @@ export default function TemporaryDrawer() {
     setOpen(isOpen);
   };
 
-  const handleLogout = () => {
-    dispatch(logOut())
-    dispatch(cartReset())
+  const handleLogout = async () => {
+    await dispatch(logOut())
+    await dispatch(cartReset())
     window.location.replace("https://e-commerce-wheat-iota.vercel.app/login")
   }
 
