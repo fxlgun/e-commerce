@@ -29,7 +29,7 @@ export default function TemporaryDrawer() {
   const handleLogout = () => {
     dispatch(logOut())
     dispatch(cartReset())
-    window.location.replace("http://localhost:3000/login")
+    window.location.replace("https://e-commerce-wheat-iota.vercel.app/login")
   }
 
 
