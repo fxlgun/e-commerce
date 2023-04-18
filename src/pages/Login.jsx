@@ -12,22 +12,26 @@ const Container = styled.div`
   background:/*  linear-gradient(
       rgba(234, 41, 41, 0.5),
       rgba(255, 255, 255, 0.5)
-    ), */ url(${pic})
+    ), */ repeat-y url(${pic})
     center;
   background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
+  ${mobile({ width: "100%" })}
+  ${mobile({ display: "block" })}
+  
 `;
 
 const TitleWrapper = styled.div`
-  width: 38%;
+  width: 50%;
   padding: 5px;
   margin: auto;
   border-radius: 8%;
   align-items: center;
   justify-content: center;
-  ${mobile({ width: "75%" })}
+  ${mobile({ width: "78%" })}
+  
 `;
 
 const Wrapper = styled.div`
@@ -38,20 +42,23 @@ const Wrapper = styled.div`
   border-radius: 8%;
   align-items: center;
   justify-content: center;
-  ${mobile({ width: "75%" })}
+  ${mobile({ width: "65%" })}
+  ${mobile({ height: "320px" })}
 `;
 
 const BigTitle = styled.h1`
   
   font-size: 90px;
   margin: auto;
-
+  ${mobile({ fontSize: "45px" })}
+  ${mobile({ margin: "50px auto" })}
+  
 `;
 
 const Title = styled.h1`
   color: white;
   font-size: 24px;
-  font-family: "Unbounded";
+  
   font-weight: 600;
   margin: 5px;
 `;
@@ -59,6 +66,7 @@ const Form = styled.form`
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  
 `;
 const Button = styled.button`
   width: 40%;
@@ -82,6 +90,7 @@ const Input = styled.input`
   border-radius: 16px;
   border: white 5px solid;
   outline: none;
+  font-size: smaller;
 
   ::placeholder{
     color: #c6c6c6;
@@ -95,7 +104,8 @@ const Input = styled.input`
 
 const Link = styled.a`
   margin: 7.5px ;
-  font-size: 12px;
+  
+  font-size: 10px;
   text-decoration: none;
   cursor: pointer;
   color: white;

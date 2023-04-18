@@ -13,28 +13,15 @@
     background-clip: text;  
     -webkit-background-clip: text;
   
-    animation: expand-rev 2s ease forwards;
+    animation: expand-rev 5s ease forwards;
+    animation-iteration-count: infinite;
   
     cursor: pointer;
   }
   
-  .gradient-text:hover {
-    animation: expand 2s ease forwards;
-  }
-  
+ 
   @keyframes expand {
-    0% {
-      background-size: 50%;
-      background-position: 0 0;
-    }
-    20% {
-      background-size: 55%;
-      background-position: 0 1em;
-    }
-    100% {
-      background-size: 325%;
-      background-position: -10em -4em;
-    }
+    
   }
   
   @keyframes expand-rev {
@@ -46,8 +33,20 @@
       background-size: 55%;
       background-position: 0 1em;
     }
-    100% {
+    40% {
       background-size: 50%;
       background-position: 0 0;
+    }
+    60% {
+      background-size: 50%;
+      background-position: 0 0;
+    }
+    80% {
+      background-size: 55%;
+      background-position: 0 1em;
+    }
+    100% {
+      background-size: 325%;
+      background-position: -10em -4em;
     }
   }
