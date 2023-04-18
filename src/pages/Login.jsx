@@ -14,7 +14,8 @@ const Container = styled.div`
       rgba(255, 255, 255, 0.5)
     ), */ repeat-y url(${pic})
     center;
-  background-size: cover;
+  background-size: cover ;
+  background-color: #ae2012;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,24 +44,25 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   ${mobile({ width: "65%" })}
-  ${mobile({ height: "320px" })}
+  
 `;
 
 const BigTitle = styled.h1`
-  
+  text-align: center;
+  display: flex;
   font-size: 90px;
   margin: auto;
-  ${mobile({ fontSize: "45px" })}
-  ${mobile({ margin: "50px auto" })}
+  ${mobile({ fontSize: "48px" })}
+  ${mobile({ margin: "70px auto" })}
   
 `;
 
 const Title = styled.h1`
   color: white;
+  text-shadow: -3px 3px #ae2012;
   font-size: 24px;
-  
   font-weight: 600;
-  margin: 5px;
+  margin: 10px 5px;
 `;
 const Form = styled.form`
   display: flex;
@@ -75,25 +77,29 @@ const Button = styled.button`
   padding: 15px 20px;
   background-color: #ae2012;
   color: white;
-  margin: 10px;
+  margin: 8px 0;
+  ${mobile({ padding: "10px 15px" })}
   &:disabled {
     color: teal;
     cursor: not-allowed;
   }
 `;
 const Input = styled.input`
-  background-color: white;
+  background-color: #94d2bd;
   flex: 1;
   min-width: 40%;
-  margin: 10px ;
+  margin: 10px 0 ;
   padding: 15px;
   border-radius: 16px;
-  border: white 5px solid;
+  border: #94d2bd 5px solid;
   outline: none;
-  font-size: smaller;
+  ${mobile({ fontFamily: "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif" })}  
+  ${mobile({ fontSize: "12px" })}
+  ${mobile({ padding: "8px" })}
+  
 
   ::placeholder{
-    color: #c6c6c6;
+    color: #0a9396;
   }
 
   :focus{
@@ -127,8 +133,8 @@ const Login = () => {
     console.log("lol");
     await login(dispatch, { username, password });
     setTimeout(() => {
-      window.location.replace("https://e-commerce-fxlgun.vercel.app/");
-      //http://localhost:3000/
+      window.location.replace("http://localhost:3000/");
+      //https://e-commerce-fxlgun.vercel.app/
     }, 2000);
   };
 
