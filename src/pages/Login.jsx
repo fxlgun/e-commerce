@@ -3,33 +3,57 @@ import { mobile } from "../responsive";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/apiCalls";
-
-
-
+import pic from "../art/login-background.jpg";
+import '../art/gradientText.css'
 
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.5),
+  background:/*  linear-gradient(
+      rgba(234, 41, 41, 0.5),
       rgba(255, 255, 255, 0.5)
-    ),
-    url("https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
-      center;
+    ), */ url(${pic})
+    center;
   background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
+
+const TitleWrapper = styled.div`
+  width: 38%;
+  padding: 5px;
+  margin: auto;
+  border-radius: 8%;
+  align-items: center;
+  justify-content: center;
+  ${mobile({ width: "75%" })}
+`;
+
 const Wrapper = styled.div`
   width: 25%;
   padding: 20px;
-  background-color: white;
+  margin: auto;
+  background-color: #001219;
+  border-radius: 8%;
+  align-items: center;
+  justify-content: center;
   ${mobile({ width: "75%" })}
 `;
+
+const BigTitle = styled.h1`
+  
+  font-size: 90px;
+  margin: auto;
+
+`;
+
 const Title = styled.h1`
+  color: white;
   font-size: 24px;
-  font-weight: 300;
+  font-family: "Unbounded";
+  font-weight: 600;
+  margin: 5px;
 `;
 const Form = styled.form`
   display: flex;
@@ -39,55 +63,89 @@ const Form = styled.form`
 const Button = styled.button`
   width: 40%;
   border: none;
+  border-radius: 16px;
   padding: 15px 20px;
-  background-color: teal;
+  background-color: #ae2012;
   color: white;
-  margin-bottom: 10px;
-  &:disabled{
+  margin: 10px;
+  &:disabled {
     color: teal;
     cursor: not-allowed;
   }
 `;
 const Input = styled.input`
+  background-color: white;
   flex: 1;
   min-width: 40%;
-  margin: 10px 0;
-  padding: 10px;
+  margin: 10px ;
+  padding: 15px;
+  border-radius: 16px;
+  border: white 5px solid;
+  outline: none;
+
+  ::placeholder{
+    color: #c6c6c6;
+  }
+
+  :focus{
+    border: #0a9396 5px solid;
+  }
+
 `;
 
 const Link = styled.a`
-  margin: 5px 0;
+  margin: 7.5px ;
   font-size: 12px;
-  text-decoration: underline;
+  text-decoration: none;
   cursor: pointer;
+  color: white;
+
 `;
 
 const Error = styled.span`
   color: red;
-`
+`;
 
 const Login = () => {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const dispatch = useDispatch();
-    const {isFetching, error }= useSelector((state) => state.user)
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const { isFetching, error } = useSelector((state) => state.user);
 
-    const handleClick = async (e) => {
-      e.preventDefault()
-      console.log("lol");
-      await login(dispatch, {username, password})
-      setTimeout(()=>{window.location.replace('https://e-commerce-fxlgun.vercel.app/');
-      }, 2000)
-    }
+  const handleClick = async (e) => {
+    e.preventDefault();
+    console.log("lol");
+    await login(dispatch, { username, password });
+    setTimeout(() => {
+      window.location.replace("https://e-commerce-fxlgun.vercel.app/");
+      //http://localhost:3000/
+    }, 2000);
+  };
 
   return (
     <Container>
+      <TitleWrapper>
+        <BigTitle className="gradient-text" >Thaavki, welcomes you.</BigTitle>
+      </TitleWrapper>
       <Wrapper>
         <Title>SIGN IN</Title>
         <Form>
-          <Input placeholder="Email" onChange={(e) => {setUsername(e.target.value)}} />
-          <Input type="password" placeholder="Password" onChange={(e) => {setPassword(e.target.value)}} />
-          <Button disabled={isFetching} onClick={handleClick}>LOG IN</Button>
+          <Input
+            placeholder="Email"
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
+          />
+          <Input
+            type="password"
+            placeholder="Password"
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+          <Button disabled={isFetching} onClick={handleClick}>
+            LOG IN
+          </Button>
           {error && <Error>Something went wrong</Error>}
           <Link>FORGOT PASSWORD?</Link>
           <Link>CREATE A NEW ACCOUNT</Link>
