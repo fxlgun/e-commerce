@@ -35,7 +35,8 @@ export default function TemporaryDrawer() {
 
   const list = () => (
     <Box
-      sx={{ width: 250 }}
+      
+      sx={{ width: 250}}
       role="presentation"
       onClick={() => toggleDrawer(false)}
       onKeyDown={() => toggleDrawer(false)}
@@ -68,8 +69,8 @@ export default function TemporaryDrawer() {
 
   return (
     <div>
-      <Button onClick={() => toggleDrawer(true)}>
-        <MenuOutlined style={{ color: "black" }} />
+      <Button style={{backgroundColor:"white"}} onClick={() => toggleDrawer(true)}>
+        <MenuOutlined style={{ color: "#ee9b00" }} />
       </Button>
       <Drawer anchor="left" open={open} onClose={() => toggleDrawer(false)}>
         {list()}

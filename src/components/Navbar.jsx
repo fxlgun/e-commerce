@@ -6,10 +6,13 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 import { Link } from "react-router-dom";
+import "../art/gradientText.css"
 
 
 const Container = styled.div`
   height: 60px;
+  background-color: #001219;
+  color: white;
   ${mobile({ height: "50px" })}
 `;
 
@@ -81,7 +84,7 @@ const Navbar = () => {
             </SearchContainer>
           </Left>
           <Center>
-          <Logo>
+          <Logo className="gradient-text" >
             THAAVKI.
             </Logo>
             

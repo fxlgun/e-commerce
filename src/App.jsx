@@ -36,7 +36,7 @@ const App = () => {
       <Route path="/products/:category">
         <ProductList/>
       </Route>
-      <Route path="/cart">
+      <Route path="/cartilake">
         <Cart/>
       </Route>
       <Route path="/product/:id" component={Product} />
