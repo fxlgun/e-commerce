@@ -61,7 +61,7 @@ const Image = styled.img`
 `;
 
 const InfoContainer = styled.div`
-  flex: 2;
+  flex: 1;
   padding: 50px;
 `;
 
