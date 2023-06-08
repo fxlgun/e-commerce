@@ -76,8 +76,8 @@ const Login = () => {
       e.preventDefault()
       console.log("lol");
       await login(dispatch, {username, password})
-      setTimeout(()=>{window.location.replace('https://e-commerce-fxlgun.vercel.app/');
-      }, 2000)
+      // setTimeout(()=>{window.location.replace('https://e-commerce-fxlgun.vercel.app/');
+      // }, 2000)
     }
 
   return (
