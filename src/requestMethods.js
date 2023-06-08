@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://e-commerce-560rcpsrd-fxlgun.vercel.app/api/";
+const BASE_URL = "http://e-commerce-560rcpsrd-fxlgun.vercel.app/api/";
 
 export const publicRequest = axios.create({
     baseURL: BASE_URL,
