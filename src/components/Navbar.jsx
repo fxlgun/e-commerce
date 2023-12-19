@@ -1,5 +1,5 @@
-import { Search, ShoppingCartOutlined } from "@mui/icons-material";
-import Sidebar from './Sidebar' 
+import { Search, ShoppingCartOutlined, LogoutOutlined } from "@mui/icons-material";
+import Sidebar from './Sidebar'
 import { Badge } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
@@ -69,37 +69,36 @@ const MenuItem = styled.div`
 const Navbar = () => {
   const quantity = useSelector(state => state.user.cart.quantity)
   return (
-    
-      <Container>
-        <Wrapper>
-          <Left>
-            <Sidebar/>
-            <Language>India</Language>
-            <SearchContainer>
-              <Input />
-              <Search style={{ color: "gray", fontSize: 16 }} />
-            </SearchContainer>
-          </Left>
-          <Center>
-          <Logo>
-            THAAVKI.
-            </Logo>
-            
-          </Center>
-          <Right>
-            <MenuItem>REGISTER</MenuItem>
-            <MenuItem>LOGIN</MenuItem>
-            <MenuItem>
-            <Link to ="/cart"><Badge badgeContent={quantity} color="primary">
-                <ShoppingCartOutlined color="action" />
-              </Badge>
+
+    <Container>
+      <Wrapper>
+        <Left>
+          <Sidebar />
+          <Language>India</Language>
+          <SearchContainer>
+            <Input />
+            <Search style={{ color: "gray", fontSize: 16 }} />
+          </SearchContainer>
+        </Left>
+        <Center>
+          <Logo><Link style={{ textDecoration: "none" }} to="/">THAAVKI.</Link>
+          </Logo>
+
+        </Center>
+        <Right>
+          <MenuItem></MenuItem>
+          <MenuItem><LogoutOutlined color="grey" /></MenuItem>
+          <MenuItem>
+            <Link to="/cart"><Badge badgeContent={quantity} color="primary">
+              <ShoppingCartOutlined color="action" />
+            </Badge>
             </Link>
-              
-            </MenuItem>
-          </Right>
-        </Wrapper>
-        
-      </Container>
+
+          </MenuItem>
+        </Right>
+      </Wrapper>
+
+    </Container>
   );
 };
 

@@ -20,32 +20,38 @@ import Orders from "./pages/Orders";
 
 const App = () => {
   const user = useSelector((state) => state.user.user.currentUser);
- console.log(user);    
+  console.log(user);
   return (
     <Router>
-     <Switch>
-      <Route exact path="/login">
-        {user ? <Redirect to= '/'/> : <Login/>}
-      </Route>
-      <Route path="/register">
-        <Register/>
-      </Route>
-      <Route exact path="/">
-        {user ? <Home/> : <Redirect to= '/login'/>}
-      </Route>
-      <Route path="/products/:category">
-        <ProductList/>
-      </Route>
-      <Route path="/cart">
-        <Cart/>
-      </Route>
-      <Route path="/product/:id" component={Product} />
-      <Route path="/success" component={Success} />
-      <Route path="/orders" component={Orders} />
-     </Switch>      
+      <Switch>
+        <Route exact path="/login">
+          {user ? <Redirect to='/' /> : <Login />}
+        </Route>
+        <Route path="/register">
+          <Register />
+        </Route>
+        <Route exact path="/">
+          {user ? <Home /> : <Redirect to='/login' />}
+        </Route>
+        <Route path="/products/:category">
+          {user ? <ProductList /> : <Redirect to='/login' />}
+        </Route>
+        <Route path="/cart">
+          {user ? <Cart /> : <Redirect to='/login' />}
+        </Route>
+        <Route path="/product/:id">
+          {user ? <Product /> : <Redirect to='/login' />}
+        </Route>
+        <Route path="/success">
+          {user ? <Success /> : <Redirect to='/login' />}
+        </Route>
+        <Route path="/orders">
+          {user ? <Orders /> : <Redirect to='/login' />}
+        </Route>
+      </Switch>
     </Router>
-    );
-    
+  );
+
 }
 
 export default App;
