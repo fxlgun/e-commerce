@@ -14,11 +14,11 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  padding: 10px 20px;
+  padding: 0px 20px;
   justify-content: space-between;
   display: flex;
   align-items: center;
-  ${mobile({ padding: "10px 0px" })}
+  ${mobile({ padding: "0px 0px" })}
 `;
 
 const Left = styled.div`
@@ -26,17 +26,14 @@ const Left = styled.div`
   display: flex;
   align-items: center;
 `;
-const Language = styled.span`
-  font-size: 14px;
-  cursor: pointer;
-  ${mobile({ display: "none" })}
-`;
+
 const SearchContainer = styled.div`
   border: 0.5px solid lightgray;
   display: flex;
   align-items: center;
   margin-left: 25px;
   padding: 5px;
+  ${mobile({ display: "none" })}
 `;
 const Input = styled.input`
   border: none;
@@ -49,8 +46,11 @@ const Center = styled.div`
 `;
 
 const Logo = styled.h1`
+  font-size: 43px;
+  padding: 0px 0px 10px;
+  font-family: "Kalnia", serif;
   font-weight: bold;
-  ${mobile({ fontSize: "24px", marginLeft: "10px" })}
+  ${mobile({ fontSize: "40px", marginLeft: "10px", paddingBottom: "0px" })}
 `;
 const Right = styled.div`
   flex: 1;
@@ -60,13 +60,14 @@ const Right = styled.div`
   ${mobile({ flex: 2, justifyContent: "center" })}
 `;
 const MenuItem = styled.div`
-  font-size: 14px;
+  font-size: 17px;
   cursor: pointer;
   margin-left: 25px;
-  ${mobile({ fontSize: "12px", marginLeft: "10px" })}
+  ${mobile({ fontSize: "15px", marginLeft: "10px" })}
 `;
 
 const Navbar = () => {
+  const user = useSelector((state) => state.user.user.currentUser);
   const quantity = useSelector(state => state.user.cart.quantity)
   return (
 
@@ -74,23 +75,23 @@ const Navbar = () => {
       <Wrapper>
         <Left>
           <Sidebar />
-          <Language>India</Language>
           <SearchContainer>
             <Input />
             <Search style={{ color: "gray", fontSize: 16 }} />
           </SearchContainer>
         </Left>
         <Center>
-          <Logo><Link style={{ textDecoration: "none" }} to="/">THAAVKI.</Link>
+          <Logo><Link style={{ textDecoration: "none", fontFamily:"Kalnia" }} to="/">
+T</Link>
           </Logo>
 
         </Center>
         <Right>
-          <MenuItem></MenuItem>
-          <MenuItem><LogoutOutlined color="grey" /></MenuItem>
+          <MenuItem><b>{user.others.username}</b></MenuItem>
+          <MenuItem><LogoutOutlined color="" /></MenuItem>
           <MenuItem>
             <Link to="/cart"><Badge badgeContent={quantity} color="primary">
-              <ShoppingCartOutlined color="action" />
+              <ShoppingCartOutlined color="" />
             </Badge>
             </Link>
 

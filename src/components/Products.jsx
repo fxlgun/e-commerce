@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { mobile } from "../responsive";
 import Product from "./Product";
 import axios from "axios";
+import { publicRequest } from "../requestMethods";
 
 const Container = styled.div`
   padding: 20px;
@@ -22,8 +23,8 @@ const Products = ({ cat, filters, sort }) => {
       try {
         const res = await axios.get(
           cat
-            ? `https://e-commerce-560rcpsrd-fxlgun.vercel.app/api/products?category=${cat}`
-            : "https://e-commerce-560rcpsrd-fxlgun.vercel.app/api/products"
+            ? `http://localhost:5000/api/products?category=${cat}`
+            : "http://localhost:5000/api/products"
         );
         setProducts(res.data);
       } catch (err) {}

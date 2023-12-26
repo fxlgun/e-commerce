@@ -20,7 +20,6 @@ import Orders from "./pages/Orders";
 
 const App = () => {
   const user = useSelector((state) => state.user.user.currentUser);
-  console.log(user);
   return (
     <Router>
       <Switch>
@@ -34,6 +33,9 @@ const App = () => {
           {user ? <Home /> : <Redirect to='/login' />}
         </Route>
         <Route path="/products/:category">
+          {user ? <ProductList /> : <Redirect to='/login' />}
+        </Route>
+        <Route path="/products">
           {user ? <ProductList /> : <Redirect to='/login' />}
         </Route>
         <Route path="/cart">

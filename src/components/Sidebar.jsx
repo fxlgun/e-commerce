@@ -12,6 +12,7 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import MenuOutlined from "@mui/icons-material/Menu";
 import LogoutIcon from "@mui/icons-material/Logout";
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import { useDispatch } from "react-redux";
 import { logOut } from "../redux/userRedux";
 import { cartReset } from "../redux/cartRedux";
@@ -40,16 +41,15 @@ export default function TemporaryDrawer() {
       onKeyDown={() => toggleDrawer(false)}
     >
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem key={text} disablePadding>
+          <ListItem key={"Profile"} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                <PersonOutlineIcon />
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary={"Profile"} />
             </ListItemButton>
           </ListItem>
-        ))}
+        
       </List>
       <Divider />
       <List>
